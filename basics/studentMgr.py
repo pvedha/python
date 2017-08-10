@@ -1,20 +1,12 @@
 students = []
 
 def add_student(name, id):
-    try:
-        file = open("students.db","a")
-        file.write({"name": name, "id":id},"\n")
-        file.close()
-    except Exception as error:
-        print("Some damn error writing to file", error)
+    students.append({"name": name, "id":id}) #its a dictionary (json)
 
 def print_students():
-    try:
-        file = open("students.db","r")
-        for student in file.readlines():
-            print("Name : ", student["name"].title(), ", Id : ", student["id"])
-    except Exception as error:
-        print("Some damn error writing to file", error)
+    for student in students:
+        print("Name : ", student["name"].title(), ", Id : ", student["id"])
+
 
 while True:
     try:
@@ -36,4 +28,8 @@ while True:
     except Exception:
         input("Invalid Entry, please try again")
         continue
+
+
+
+
 
